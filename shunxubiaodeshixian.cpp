@@ -90,10 +90,25 @@ int main()
 {
 	SqList<char>list;
 	list.push_back('H');
-	list.push_back('o');
 	list.push_back('e');
-	list.insert(2,'L');
+	list.push_back('r');
+	list.push_back('h');
+	char ch;
+	int i;
+	for(i=1;i<list.size();i++)
+	{
+	    	list.get(i,ch);
+	    	cout<<ch<<endl;
+	}
+	list.insert(2,'B');
 	list.remove(1);
+	for(i=1;i<list.size();i++)
+	{
+		list.get(i,ch);
+		cout<<ch<<endl;
+	}
+	
+	return 0;
 }
 
 
