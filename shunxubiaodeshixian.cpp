@@ -41,10 +41,10 @@ bool SqList<T>::push_back(T e)
 template<typename T>
 bool SqList<T>::insert(int i,T e)
 {
-	if(i<1||i>n+1) return false;//iÊÇ·ñºÏ·¨ 
+	if(i<1||i>n+1) return false;//iæ˜¯å¦åˆæ³• 
 	if(n>=capacity)
 	{
-		//·ÖÅä¸ü´óµÄÄÚ´æ¿é 
+		//åˆ†é…æ›´å¤§çš„å†…å­˜å— 
 		if(!realloc()) return false;
 	}
 	for(int j=n;j>=i;j--)
@@ -55,26 +55,26 @@ bool SqList<T>::insert(int i,T e)
 template<typename T>
 bool SqList<T>::remove(int i)
 {
-	if(i<1||i>n+1) return false;//iÊÇ·ñºÏ·¨ 
+	if(i<1||i>n+1) return false;//iæ˜¯å¦åˆæ³• 
 	T *p,*q;
-	p=&(data[i]);//pÖ¸Ïò±»É¾³ıµÄ½Úµã
-	q=data+n-1;//qÖ¸Ïò×îºóÒ»¸ö½Úµã
+	p=&(data[i]);//pæŒ‡å‘è¢«åˆ é™¤çš„èŠ‚ç‚¹
+	q=data+n-1;//qæŒ‡å‘æœ€åä¸€ä¸ªèŠ‚ç‚¹
 	for(;p<=q;++p)
-	    *(p-1)=*p;   //´Óp+1µ½qµÄËùÓĞ½ÚµãÇ°ÒÆÒ»¸öµ¥Ôª 
-	--n;   //±í³¤¼õ1 
+	    *(p-1)=*p;   //ä»p+1åˆ°qçš„æ‰€æœ‰èŠ‚ç‚¹å‰ç§»ä¸€ä¸ªå•å…ƒ 
+	--n;   //è¡¨é•¿å‡1 
 	return true;
 }
 template<typename T>
 bool SqList<T>::set(int i,T e)
 {
-	if(i<1||i>n+1) return false;//iÊÇ·ñºÏ·¨
+	if(i<1||i>n+1) return false;//iæ˜¯å¦åˆæ³•
 	data[i-1]=e;
 	return true;
 }
 template<typename T>
 bool SqList<T>::get(int i,T&e)
 {
-	if(i<1||i>n+1) return false;//iÊÇ·ñºÏ·¨
+	if(i<1||i>n+1) return false;//iæ˜¯å¦åˆæ³•
 	e=data[i-1];
 	return true;
 }
@@ -95,17 +95,17 @@ int main()
 	list.push_back('h');
 	char ch;
 	int i;
-	for(i=1;i<list.size();i++)
+	for(i=1;i<=list.size();i++)
 	{
 	    	list.get(i,ch);
-	    	cout<<ch<<endl;
+	    	cout<<ch<<'\t';
 	}
 	list.insert(2,'B');
 	list.remove(1);
-	for(i=1;i<list.size();i++)
+	for(i=1;i<=list.size();i++)
 	{
 		list.get(i,ch);
-		cout<<ch<<endl;
+		cout<<ch<<'\t';
 	}
 	
 	return 0;
